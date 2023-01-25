@@ -13,14 +13,24 @@ function sendMessage() {
       }
     })
     .then(function(data) {
-      // Wyświetlanie odpowiedzi
-      var history = document.getElementById("history");
-      var newMessage = document.createElement("div");
-      newMessage.innerHTML = "<b>Ty:</b> " + message;
-      history.appendChild(newMessage);
-      newMessage = document.createElement("div");
-      newMessage.innerHTML = "<b>ChatBot:</b> " + data.response.response;
-      history.appendChild(newMessage);
+      // Sprawdzanie czy ChatBot jest dostępny
+      if(data.response.response == "Bot is tempoary offline") {
+        var history = document.getElementById("history");
+        var newMessage = document.createElement("div");
+        newMessage.innerHTML = "<b>Ty:</b> " + message;
+        history.appendChild(newMessage);
+        newMessage = document.createElement("div");
+        newMessage.innerHTML = "<b>ChatBot:</b> " + data.response.response;
+        history.appendChild(newMessage);
+      } else {
+        var history = document.getElementById("history");
+        var newMessage = document.createElement("div");
+        newMessage.innerHTML = "<b>Ty:</b> " + message;
+        history.appendChild(newMessage);
+        newMessage = document.createElement("div");
+        newMessage.innerHTML = "<b>ChatBot:</b> " + data.response.response;
+        history.appendChild(newMessage);
+      }
       // Czyszczenie inputu
       document.getElementById("message").value = "";
     })
