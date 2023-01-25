@@ -9,7 +9,12 @@ function sendMessage() {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error("API jest offline.");
+      // Wyświetlanie błędu na czacie
+      console.log("Unfortunately, the server is offline at the moment....");
+      var history = document.getElementById("history");
+      var newMessage = document.createElement("div");
+      newMessage.innerHTML = "<b>ChatBot:</b> " + "Unfortunately, I can not give you an answer to this question, for the reason that the server to which I send the query did not send me a response, most likely the server is off at the moment. Sorry for the inconvenience!";
+      history.appendChild(newMessage);
       }
     })
     .then(function(data) {
@@ -17,7 +22,7 @@ function sendMessage() {
       if(data.response.response == "Bot is tempoary offline") {
         var history = document.getElementById("history");
         var newMessage = document.createElement("div");
-        newMessage.innerHTML = "<b>Ty:</b> " + message;
+        newMessage.innerHTML = "<b>You:</b> " + message;
         history.appendChild(newMessage);
         newMessage = document.createElement("div");
         newMessage.innerHTML = "<b>ChatBot:</b> " + data.response.response;
@@ -25,7 +30,7 @@ function sendMessage() {
       } else {
         var history = document.getElementById("history");
         var newMessage = document.createElement("div");
-        newMessage.innerHTML = "<b>Ty:</b> " + message;
+        newMessage.innerHTML = "<b>You:</b> " + message;
         history.appendChild(newMessage);
         newMessage = document.createElement("div");
         newMessage.innerHTML = "<b>ChatBot:</b> " + data.response.response;
@@ -36,6 +41,6 @@ function sendMessage() {
     })
     .catch(function(error) {
       // Wyświetlanie błędu
-      alert(error);
+      console.log(error)
     });
 }
