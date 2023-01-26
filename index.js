@@ -3,7 +3,7 @@ function sendMessage() {
   var message = document.getElementById("message").value;
 
   // Wysyłanie wiadomości do API
-  fetch("https://api.popcat.xyz/chatbot?msg=" + message)
+  fetch("https://raw.githubusercontent.com/LuckyMan612/ChatBot/main/test.json)
     .then(function(response) {
       // Sprawdzanie czy API jest online
       if (response.ok) {
@@ -25,7 +25,7 @@ function sendMessage() {
         newMessage.innerHTML = "<b>You:</b> " + message;
         history.appendChild(newMessage);
         newMessage = document.createElement("div");
-        newMessage.innerHTML = "<b>ChatBot:</b> " + data.response.response;
+        newMessage.innerHTML = "<b>ChatBot:</b> " + data.response;
         history.appendChild(newMessage);
       } else {
         var history = document.getElementById("history");
