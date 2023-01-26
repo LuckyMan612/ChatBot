@@ -3,7 +3,7 @@ function sendMessage() {
   var message = document.getElementById("message").value;
 
   // Wysyłanie wiadomości do API
-  fetch("https://raw.githubusercontent.com/LuckyMan612/ChatBot/main/test.json)
+  fetch("https://raw.githubusercontent.com/LuckyMan612/ChatBot/main/test.json")
     .then(function(response) {
       // Sprawdzanie czy API jest online
       if (response.ok) {
