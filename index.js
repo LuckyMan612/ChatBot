@@ -25,7 +25,7 @@ function sendMessage() {
         newMessage.innerHTML = "<b>You:</b> " + message;
         history.appendChild(newMessage);
         newMessage = document.createElement("div");
-        newMessage.innerHTML = "<b>ChatBot:</b> " + data.response.response;
+        newMessage.innerHTML = "<b>ChatBot:</b> " + data.response;
         history.appendChild(newMessage);
       } else {
         var history = document.getElementById("history");
@@ -33,7 +33,7 @@ function sendMessage() {
         newMessage.innerHTML = "<b>You:</b> " + message;
         history.appendChild(newMessage);
         newMessage = document.createElement("div");
-        newMessage.innerHTML = "<b>ChatBot:</b> " + data.response.response;
+        newMessage.innerHTML = "<b>ChatBot:</b> " + data.response;
         history.appendChild(newMessage);
       }
       // Czyszczenie inputu
